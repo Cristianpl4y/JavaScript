@@ -8,3 +8,6 @@ const imprimirResult = function(nota){
 
 imprimirResult(10)
 imprimirResult(6)
+
+imprimirResult('Epa!') // cuidado!!!
+
