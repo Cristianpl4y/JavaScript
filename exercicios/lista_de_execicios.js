@@ -114,10 +114,143 @@ function formula_de_bhaskara (ax2, bx, c) {
 console.log(formula_de_bhaskara(1, 3, 2))
 console.log(formula_de_bhaskara(3, 1, 2))
 
+/*
+08) Pedro joga N jogos de basquete por temporada. Para saber como está ele está progredindo, ele mantém
+registro de todos os as pontuações feitas por jogo. Após cada jogo ele anota no novo valor e confere se o
+mesmo é maior ou menor que seu melhor e pior desempenho. Dada uma lista string = “pontuação1 pontuação2
+pontuação3 etc..”, escreva uma função que ao recebê-la irá comparar os valores um a um e irá retornar um
+vetor com o número de vezes que ele bateu seu recorde de maior número de pontos e quando fez seu pior
+jogo. (Número do pior jogo).
+Obs.: O primeiro jogo não conta como novo recorde do melhor.
+Exemplo:
+String: “10 20 20 8 25 3 0 30 1”
+Retorno: [2, 7] (Significa que ele bateu três vezes seu recorde de melhor pontuação e a pior pontuação
+aconteceu no sétimo jogo.)
+*/
+
+let pontuacoes = "10, 20, 20, 8, 25, 3, 0, 30, 1"
+
+function comparaValores(pontuacoes){
+    let pontos = pontuacoes.split(', ')
+    let recorde = 0
+    let piorJogo = 1
+    let maiorPonto = pontos[0]
+    let menorPonto = pontos[0]
+
+    for(let i = 1; i < pontos.length; i++){
+        
+        if(pontos[i] > maiorPonto) {
+            maiorPonto = pontos[i]
+            recorde++
+        }else if (pontos[i] < menorPonto) {
+            menorPonto = pontos[i]
+            piorJogo = i+1;
+        }
+
+    }
+    return [recorde, piorJogo]
+}
+
+console.log(comparaValores(pontuacoes))
+
+/*
+09) Construa uma função para um sistema de notas de uma instituição que possui a seguinte política de
+classificação: Todo aluno recebe uma nota de 0 a 100. Alunos com nota abaixo de 40 são reprovados. As notas
+possuem a seguinte regra de arredondamento: Se a diferença entre a nota e o próximo múltiplo de 5 for menor
+que 3, arredondar a nota para esse próximo múltiplo de 5. Se a nota for abaixo de 38, não é feito nenhum
+arredondamento pois esta nota resulta na reprovação do aluno. Por exemplo, a nota 84 será arredondada para
+85, mas a nota 29 não será arredondada por ser abaixo de 40 e não ser possível arredondamento eficiente, ou
+seja, que evite a reprovação do aluno. No caso de a nota ser 38, o arredondamento é possível pois atingirá 40
+e o aluno será aprovado.
+*/
+
+function arredondar(nota){
+    if(nota % 5 > 2){
+        return nota + (5 - (nota % 5))
+    }else{
+        return nota
+    }
+}
+
+function classificacao(nota){
+    
+    let notaCorrigida = arredondar(nota)
+
+    if(notaCorrigida >= 40){
+        console.log(`Aprovado com nota ${notaCorrigida}`);
+    }else{
+        console.log(`Reprovado com nota ${notaCorrigida}`);
+    }
+}
+
+classificacao(100)
+classificacao(30)
+classificacao(38)
+classificacao(88)
+classificacao(61)
+
+/*
+10) Crie uma função que verifica se um número inteiro passado como parêmetro é divisível por 3 e retorne true
+ou false.
+*/
+
+function verificaNumero (numero) {
+    if(numero % 3 == 0){
+        return true
+    }else{
+        return false
+    }
+}
+
+console.log(verificaNumero(3))
+console.log(verificaNumero(2))
+console.log(verificaNumero(150))
 
 
+/*
+11) As regras para o cálculo dos anos bissextos são as seguintes:
+De 4 em 4 anos é ano bissexto;
+De 100 em 100 anos não é ano bissexto;
+De 400 em 400 anos é ano bissexto;
+Prevalecem as últimas regras sobre as primeiras.
+Partindo daí elabore uma função que recebe um ano e calcula se ele é ano bissexto, imprimindo no console a
+mensagem e retornando true ou false.
+*/
+
+function calcularAnoBissexto (ano) {
+    if (ano <= 0){
+        return false
+    } else if (ano % 400 == 0) {
+        return true
+    } else if (ano % 100 == 0) {
+        return false
+    } else if (ano % 4 == 0) {
+        return true
+    } else {
+        return false
+    }
+}
+
+let currentTime = new Date()
+let ano = currentTime.getFullYear()
+console.log(ano)
+console.log(calcularAnoBissexto(ano))
+console.log(calcularAnoBissexto(2020)) 
 
 
+// 12) Faça um algoritmo que calcule o fatorial de um número.
+
+function fatorial (numero) {
+    if(numero == 0){
+        return 1
+    } else {
+        return numero * fatorial(numero - 1)
+    }
+}
+
+console.log(fatorial(10))
+console.log(fatorial(15))
+console.log(fatorial(20))
 
 
 
