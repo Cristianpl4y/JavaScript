@@ -252,5 +252,203 @@ console.log(fatorial(10))
 console.log(fatorial(15))
 console.log(fatorial(20))
 
+// 13) Crie um programa que exibe se um dia é dia útil, fim de semana ou dia inválido dado o número referente ao
+// dia. Considere que domingo é o dia 1 e sábado é o dia 7. Utilize a estrutura Switch.
+
+function ValidaDia(dia) {
+    switch (dia) {
+        case 1: return "fim de semana!"
+        case 2:
+        case 3:
+        case 4:
+        case 5: 
+        case 6: return "dia útil!"
+        case 7: return "fim de semana!"
+        default: return "Atenção dia inválido!"
+    }
+}
+
+console.log(ValidaDia(1));
+console.log(ValidaDia(2));
+console.log(ValidaDia(3));
+console.log(ValidaDia(4));
+console.log(ValidaDia(5));
+console.log(ValidaDia(6));
+console.log(ValidaDia(7));
+console.log(ValidaDia('a'));
+
+/* 
+4) Crie uma estrutura condicional switch que receba uma string com o nome de uma fruta e que possua três
+casos: Caso maçã, retorne no console: “Não vendemos esta fruta aqui”. Caso kiwi, retorne: “Estamos com
+escassez de kiwis”. Caso melancia, retorne: “Aqui está, são 3 reais o quilo”. Teste com estas três opções .Crie
+também um default, que retornará uma mensagem de erro no console.
+*/
+
+function Fruta (fruta) {
+    switch (fruta) {
+        case 'maçã':
+            console.log('Não vendemos esta fruta aqui.')
+            break
+        case 'kiwi':
+            console.log('Estamos com escassez de kiwi.')
+            break
+        case 'melancia':
+            console.log('Aqui está, custa R$ 3,00 o quilo.')
+            break
+        default:
+            console.log('Erro, fruta inválida.')
+    }
+}
+
+Fruta('maçã')
+Fruta('kiwi')
+Fruta('melancia')
+Fruta('Agua')
+
+/*
+15) Um homem decidiu ir à uma revenda comprar um carro. Ele deseja comprar um carro hatch, e a revenda
+possui, além de carros hatch, sedans, motocicletas e caminhonetes. Utilizando uma estrutura switch, caso o
+comprador queira o hatch, retorne: “Compra efetuada com sucesso”. Nas outras opções, retorne: “Tem certeza
+que não prefere este modelo?”. Caso seja especificado um modelo que não está disponível, retorne no console:
+“Não trabalhamos com este tipo de automóvel aqui”.
+*/
+
+function escolherCarro (modelo) {
+    switch (modelo) {
+        case 'hatch':
+            return 'Compra efetuada com sucesso.'
+        case 'sedan':
+        case 'motocicleta':
+        case 'caminhonete':
+            return 'Tem certeza que não prefere este modelo?'
+        default:
+            return 'Não trabalhamos com este tipo de automóvel aqui.'
+    }
+}
+
+console.log(escolherCarro('hatch'));
+console.log(escolherCarro('motocicleta'));
+console.log(escolherCarro('sedan'));
+console.log(escolherCarro('caminhonete'));
+console.log(escolherCarro('jetski'));
+
+
+/*
+16) Utilizando a estrutura do Switch faça um programa que simule uma calculadora básica O programa recebe
+como parâmetros dois valores numéricos e uma string referente à operação e a realize com os valores
+numéricos na ordem que foram inseridos. Por exemplo: calculadora (2, ‘+’, 3). A função efetuará a soma de 2 e
+3. Dica: Os sinais das operações são: ‘+’. ‘-’, ‘*’ e ‘/’. Crie um caso default para operações inválidas.
+*/
+
+function calculadora (valor1, operacao, valor2) {
+    switch (operacao) {
+        case '+':
+            return valor1 + valor2
+        case '-':
+            return valor1 - valor2
+        case '*':
+            return valor1 * valor2
+        case '/':
+            return valor1 / valor2
+        default:
+            return 'Operação inválida'
+    }
+}
+
+console.log(calculadora(2, '+', 3));
+console.log(calculadora(2, '-', 3));
+console.log(calculadora(2, '*', 3));
+console.log(calculadora(2, '/', 3));
+console.log(calculadora(2, 'a', 3));
+
+/*
+17) Um funcionário irá receber um aumento de acordo com o seu plano de
+trabalho, de acordo com a tabela abaixo:
+Plano   Aumento
+A       10%
+B       15%
+C       20%
+Faça uma função que leia o plano de trabalho e o salário atual de um funcionário e calcula e imprime o seu
+novo salário. Use a estrutura switch e faça um caso default que indique que o plano é inválido.
+*/
+
+function calcularReajuste(plano, salarioAtual) {
+    switch (plano) {
+        case 'A':
+            return salarioAtual * 1.1
+        case 'B':
+            return salarioAtual * 1.15
+        case 'C':
+            return salarioAtual * 1.2
+        default:
+            return 'Plano inválido.'
+    }
+}
+
+console.log(calcularReajuste('A', 1000));
+console.log(calcularReajuste('B', 1000));
+console.log(calcularReajuste('C', 1000));
+console.log(calcularReajuste('D', 1000));
+
+/*
+18) Faça um programa que leia um número entre 0 e 10, e escreva este número por extenso. Use o comando
+switch. Crie um case default que escreva ‘Número fora do intervalo.’
+*/
+function numeroPorExtenso(numero) {
+    switch (numero) {
+        case 0:
+            console.log('Zero')
+            break
+        case 1:
+            console.log('Um')
+            break
+        case 2:
+            console.log('Dois')
+            break
+        case 3:
+            console.log('Três')
+            break
+        case 4:
+            console.log('Quatro')
+            break
+        case 5:
+            console.log('Cinco')
+            break
+        case 6:
+            console.log('Seis')
+            break
+        case 7:
+            console.log('Sete')
+            break
+        case 8:
+            console.log('Oito')
+            break
+        case 9:
+            console.log('Nove')
+            break
+        case 10:
+            console.log('Dez')
+            break
+        default:
+            console.log('Numero fora do intervalo.')
+    }
+}
+
+numeroPorExtenso(0)
+numeroPorExtenso(1)
+numeroPorExtenso(2)
+numeroPorExtenso(3)
+numeroPorExtenso(4)
+numeroPorExtenso(5)
+numeroPorExtenso(6)
+numeroPorExtenso(7)
+numeroPorExtenso(8)
+numeroPorExtenso(9)
+numeroPorExtenso(10)
+numeroPorExtenso(11)
+
+
+
+
 
 
