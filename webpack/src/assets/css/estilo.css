@@ -1,0 +1,7 @@
+body {
+    background-color: brown;
+    background-image: url(../imgs/pedra.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+}
