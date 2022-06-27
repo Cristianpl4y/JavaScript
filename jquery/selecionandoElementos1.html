@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Selecionando Elementos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src='js/jquery.js'></script>
+    <style>
+        .negrito {
+            font-weight: bold;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input,
+        form select,
+        form button {
+            margin: 10px;
+            font-size: 1.6em;
+        }
+    </style>
+</head>
+
+<body class='conteudo exercicio'>
+
+    <h1>Selecionando Elementos #01</h1>
+    <div>
+        <p>Parágrafo
+            <span class='negrito'>dentro span</span>
+        </p>
+    </div>
+    <div>
+        <ul id='feira'>
+            <li>Arroz</li>
+            <li wm-obrigatorio>Feijão</li>
+            <li class='opcional'>Carne</li>
+            <li class='opcional'>Ovo</li>
+        </ul>
+    </div>
+    <form>
+        <input type='text' name='texto'>
+        <input type='password' name='senha'>
+        <input type='checkbox' name='check1'>
+        <input type='radio' name='radio1'>
+        <input type='file' name='arquivo'>
+    </form>
+
+    <script>
+        $('#feira').addClass('destaque').removeClass('destaque'); // Adiciona e remove classe 
+        $('li').addClass('destaque'); // Adiciona classe a todos os elementos li 
+        $('[wm-obrigatorio]').removeClass('destaque'); // Remove classe a todos os elementos com atributo wm-obrigatorio 
+        $('li.opcional').removeClass('destaque'); // Remove classe a todos os elementos li com classe opcional
+        $('div p span').addClass('destaque'); // Adiciona classe destaque a todos os elementos dentro de span dentro de p dentro de div
+    
+        // Exclusivos do JQuery
+        $('li:first').css('border', '3px solid green'); // Seleciona o primeiro elemento li e adiciona borda
+        $('li:odd').css('border', '5px solid orange'); // Seleciona os elementos li pares e adiciona borda
+        $('li:gt(1)').css('border', '5px solid red'); // Seleciona os elementos li a partir do segundo elemento e adiciona borda
+        $('li:not(li:last)').css('border', 'none'); // Seleciona todos os elementos li exceto o último
+        $('li:contains("Feijão")').css('background-color', 'black'); // Seleciona todos os elementos li que contenham a palavra Feijão
+  
+        
+        $('form *').hide(); // Esconde o formulário 
+        $('form :text').show(); // Seleciona todos os elementos text dentro do formulário e mostra
+        $('form :password').show(); // Seleciona todos os elementos password dentro do formulário e mostra
+        $('form :checkbox').show(); // Seleciona todos os elementos checkbox dentro do formulário e mostra
+        $('form :radio').show(); // Seleciona todos os elementos radio dentro do formulário e mostra
+        $('form :file').show(); // Seleciona todos os elementos file dentro do formulário e mostra
+    
+    </script>
+</body>
