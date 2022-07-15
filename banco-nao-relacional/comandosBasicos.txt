@@ -1,0 +1,15 @@
+help
+cls --> Limpar a tela do terminal  
+show dbs --> mostrar os bancos de dados
+use wm --> comando para usar determinado banco
+show dbs
+db.createCollection('estados') --> Criar tabela
+show dbs
+show collections
+db.createCollection('Estados')
+show collections
+db.Estados.drop() --> apagar tabela
+show collections
+db.estados.drop()
+show collections
+show dbs
